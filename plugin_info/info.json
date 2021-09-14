@@ -1,6 +1,6 @@
 {
-	"id" : "template",
-	"name" : "Template",
+	"id" : "ColorTransition",
+	"name" : "ColorTransition",
 	"specialAttributes" : {
 		"object" : {
 			"toto" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial"},"type" : "input"},
@@ -11,12 +11,12 @@
 		}
 	},
 	"description" : {
-		"fr_FR": "Template servant de base à la création de plugins pour Jeedom"
+		"fr_FR": "Plugin permettant de calculer des transition de couleurs selon un indice"
 	},
 	"licence" : "AGPL",
 	"author" : "Jeedom SAS",
 	"require" : "3.3.39",
-	"category" : "programming",
+	"category" : "utilitaire",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
@@ -27,24 +27,9 @@
 		"video" : "Lien vers une video"
 	},
 	"language": [
-		"fr_FR",
-		"en_US",
-		"es_ES",
-		"de_DE",
-		"ru_RU",
-		"id_ID",
-		"it_IT",
-		"ja_JP",
-		"pt_PT"
+		"fr_FR"
 	],
 	"compatibility": [
-		"miniplus",
-		"smart",
-		"rpi",
-		"docker",
-		"diy",
-		"mobile",
-		"v4",
-		"atlas"
+				"v4"
 	]
 }

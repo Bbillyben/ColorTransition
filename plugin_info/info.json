@@ -1,27 +1,18 @@
 {
 	"id" : "ColorTransition",
 	"name" : "ColorTransition",
-	"specialAttributes" : {
-		"object" : {
-			"toto" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial"},"type" : "input"},
-			"toto2" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial number"},"type" : "number"}
-		},
-		"user" : {
-			"toto" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial"},"type" : "select","values" : [{"value" : "1", "name" : "valeur 1"},{"value" : "plop", "name" : "valeur plop"}]}
-		}
-	},
 	"description" : {
-		"fr_FR": "Plugin permettant de calculer des transition de couleurs selon un indice"
+		"fr_FR": "Ce Plugin permets de calculer des transitions entre différentes couleurs selon un indice. Il permet différents types de transitions (linéaire, exponentielle, logarithmique, puissance,...), et sort la couleur de transition sous différents formats."
 	},
 	"licence" : "AGPL",
 	"author" : "Jeedom SAS",
 	"require" : "3.3.39",
-	"category" : "utilitaire",
+	"category" : "programming",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
-	"documentation" : "https://jeedom.github.io/plugin-template/#language#/",
+	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/d5ae088c484758467bb4bbdcf83dea48cab65821/docs/fr_FR/changelog.md",
+	"documentation" : "https://github.com/Bbillyben/ColorTransition/blob/d5ae088c484758467bb4bbdcf83dea48cab65821/README.md",
 	"link" : {
 		"forum":"Lien vers le forum",
 		"video" : "Lien vers une video"

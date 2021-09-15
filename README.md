@@ -85,6 +85,7 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
    
    ici sont définis les couleurs de la transition.
    Vous pouvez ordonner les couleurs par glissé-déposé
+   Vous pouvez ajouter autant de couleurs que vous souhaitez !
    Trois paramètres sont disponible pour les couleurs :
    * __Nom__ : un nom unique que vous choississez
    * __couleur__ : la valeur de la couleur. la fenêtre de selection est dépendante du navigateur et du système. En général avec une roue ou un panel, les valeurs TSL et RGB

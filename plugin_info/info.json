@@ -5,7 +5,7 @@
 		"fr_FR": "Ce Plugin permets de calculer des transitions entre différentes couleurs selon un indice. Il permet différents types de transitions (linéaire, exponentielle, logarithmique, puissance,...), et sort la couleur de transition sous différents formats."
 	},
 	"licence" : "AGPL",
-	"author" : "Jeedom SAS",
+	"author" : "Bben/Bbillyben",
 	"require" : "3.3.39",
 	"category" : "programming",
 	"hasDependency" : false,

@@ -54,7 +54,7 @@ class ColorTransition extends eqLogic {
       $showRoomColors[]=$eqL->calculateColorFromIndex($i/$numChild, $colorArray,false,'hexa');
     }
 
-    log::add('ColorTransition', 'debug','╠════ Colors :'.print_r($output));
+    //log::add('ColorTransition', 'debug','╠════ Colors :'.print_r($output));
       return ($showRoomColors);
   }
 
@@ -68,7 +68,7 @@ class ColorTransition extends eqLogic {
     
     log::add('ColorTransition', 'debug', '╔═══════════════════════ start color calculation ════════════════════ ');
     $colorArray = $this->getColorsArray();
-    log::add('ColorTransition', 'debug', '╠════ Colors : '.json_encode($colorArray));
+    //log::add('ColorTransition', 'debug', '╠════ Colors : '.json_encode($colorArray));
     
     // valeur du curseur
     $ctCMD = $this->getCmd(null, 'curseurIndex');
@@ -77,7 +77,7 @@ class ColorTransition extends eqLogic {
        return false;
      }
     $cursValue = $ctCMD->execCmd();
-    log::add('ColorTransition', 'debug', '╠════ Curseur Value : '.$cursValue);
+    //log::add('ColorTransition', 'debug', '╠════ Curseur Value : '.$cursValue);
     
     // bornes du curseur
     $typeBorne = $this->getConfiguration('cursor-range');
@@ -103,7 +103,7 @@ class ColorTransition extends eqLogic {
         break;
 	}
     $cursPos=($cursValue-$cursMin)/($cursMax-$cursMin);
-    log::add('ColorTransition', 'debug', '╠════ Curseur Value / % pos : '.$cursValue.' / '.$cursPos);
+    //log::add('ColorTransition', 'debug', '╠════ Curseur Value / % pos : '.$cursValue.' / '.$cursPos);
     return $this->calculateColorFromIndex($cursPos, $colorArray,$useAlpha,$outputType);
   }
 
@@ -118,7 +118,7 @@ class ColorTransition extends eqLogic {
     
     // champs application de la transition
     $transhFielEach=$this->getConfiguration('transition-field-each');
-    log::add('ColorTransition', 'debug', '╠════ Transition champs chacun : '.$transhFielEach);
+    //log::add('ColorTransition', 'debug', '╠════ Transition champs chacun : '.$transhFielEach);
     
 
     $cc=count($colorArray)-1;
@@ -133,13 +133,13 @@ class ColorTransition extends eqLogic {
     
     $colorEnd = $this->calculateFinalColor($colorRef1, $colorRef2, $transValue);
     
-        log::add('ColorTransition', 'debug', '╟─── couleur finale:'.sprintf("#%02x%02x%02x%02x",$colorEnd['a'], $colorEnd['r'],$colorEnd['g'],$colorEnd['b']));
-    log::add('ColorTransition', 'debug', '╟─── couleur finale:'.json_encode($colorEnd));
+    //log::add('ColorTransition', 'debug', '╟─── couleur finale:'.sprintf("#%02x%02x%02x%02x",$colorEnd['a'], $colorEnd['r'],$colorEnd['g'],$colorEnd['b']));
+    //log::add('ColorTransition', 'debug', '╟─── couleur finale:'.json_encode($colorEnd));
     
     $output = $this->formatOutput($colorEnd,$useAlpha,$outputType);
     
     
-    log::add('ColorTransition', 'debug', '╠══════════════════════ Couleur Format Final : '.$output);
+    //log::add('ColorTransition', 'debug', '╠══════════════════════ Couleur Format Final : '.$output);
     
     return $output;
     
@@ -148,7 +148,7 @@ class ColorTransition extends eqLogic {
   // calcul sur les couleurs
   public function calculateFinalColor($colorRef1, $colorRef2, $transValue){
     
-    log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la couleur finale au ratio : '.$transValue);
+   // log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la couleur finale au ratio : '.$transValue);
 
     $hex = "#ff9900";
 	$col1Arr = sscanf($colorRef1['color'], "#%02x%02x%02x");
@@ -156,10 +156,10 @@ class ColorTransition extends eqLogic {
     $col2Arr = sscanf($colorRef2['color'], "#%02x%02x%02x");
     $col2Arr[]=intval($colorRef2['alpha']);
     
-    log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef1));
-    log::add('ColorTransition', 'debug', '╟─── rgb :'.json_encode($col1Arr));
-    log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef2));
-    log::add('ColorTransition', 'debug', '╟─── rgb :'.json_encode($col2Arr));
+    //log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef1));
+    //log::add('ColorTransition', 'debug', '╟─── rgb :'.json_encode($col1Arr));
+    //log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef2));
+    //log::add('ColorTransition', 'debug', '╟─── rgb :'.json_encode($col2Arr));
     
     $currCol['r']=intval($col1Arr[0]+($col2Arr[0]-$col1Arr[0])*$transValue);
     $currCol['g']=intval($col1Arr[1]+($col2Arr[1]-$col1Arr[1])*$transValue);
@@ -173,9 +173,9 @@ class ColorTransition extends eqLogic {
   // format de la sortie
   public function formatOutput($color, $useAlpha, $outputType){
     
-    log::add('ColorTransition', 'debug', '╠══════════════════════ formattage de la sortie : ');
-    log::add('ColorTransition', 'debug', '╟─── format type :'.$outputType);
-    log::add('ColorTransition', 'debug', '╟─── canal alpha :'.$useAlpha);
+    //log::add('ColorTransition', 'debug', '╠══════════════════════ formattage de la sortie : ');
+    //log::add('ColorTransition', 'debug', '╟─── format type :'.$outputType);
+    //log::add('ColorTransition', 'debug', '╟─── canal alpha :'.$useAlpha);
     switch($outputType){
       case 'hexa':
         if($useAlpha){
@@ -207,9 +207,9 @@ class ColorTransition extends eqLogic {
     	$transParam=ColorTransition::default_param[$transType]; // on va cherhcher le params par défaut dans le tableau de classe
     }
    
-   log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la transition : '.$transType);
-   log::add('ColorTransition', 'debug', '╟─── trans param:'.$transParam);
-   log::add('ColorTransition', 'debug', '╟─── curs param:'.$cursor);
+   //log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la transition : '.$transType);
+   //log::add('ColorTransition', 'debug', '╟─── trans param:'.$transParam);
+   //log::add('ColorTransition', 'debug', '╟─── curs param:'.$cursor);
 	if($transhFielEach==1){// si transistion entre chaque couleur
       	$val=$this->getTransitionEach($transType, $cursor, $minI, $maxI, $transParam);
     }else{//transition sur toutes les couleurs
@@ -223,12 +223,12 @@ class ColorTransition extends eqLogic {
   	$cursIndex = ($cursor-$minI)/($maxI-$minI);// index de variation entre les 2 courleurs en cours
     
     $val =$this->getGlobalTransitionValue($transType, $cursIndex, $transParam);
-    log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minI.' | '.$maxI.' | '.$cursor.' | '.$val);
+    //log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minI.' | '.$maxI.' | '.$cursor.' | '.$val);
     
   	return $val;
   }
   public function getTransitionAll($transType, $cursor, &$minI, &$maxI, $transParam,$totalCount){
-    log::add('ColorTransition', 'debug', '╟─── start All calculation : '.$minI.' | '.$maxI.' | '.$cursor);
+    //log::add('ColorTransition', 'debug', '╟─── start All calculation : '.$minI.' | '.$maxI.' | '.$cursor);
     // ici on va calculer le ratio entre les 2 valeurs qui encadre la valeur calculée de l'index en cours
     $curVal=$this->getGlobalTransitionValue($transType, $cursor/$totalCount, $transParam);
     
@@ -245,7 +245,7 @@ class ColorTransition extends eqLogic {
     	$val =($curVal-$minVal)/($maxVal-$minVal);
      }
     
-    log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minVal.' | '.$maxVal.' | '.$curVal.' | '.$val);
+    //log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minVal.' | '.$maxVal.' | '.$curVal.' | '.$val);
    
     
   	return $val;
@@ -298,8 +298,8 @@ class ColorTransition extends eqLogic {
     /*     * *********************Méthodes d'instance************************* */
     
  // Fonction exécutée automatiquement avant la création de l'équipement 
-    public function preInsert() {
-        
+    public function preInsert() {        
+      $this->setConfiguration('transition-field-all', 1);
     }
 
  // Fonction exécutée automatiquement après la création de l'équipement 
@@ -319,13 +319,13 @@ class ColorTransition extends eqLogic {
 
  // Fonction exécutée automatiquement avant la sauvegarde (création ou mise à jour) de l'équipement 
     public function preSave() {
-      log::add('ColorTransition', 'debug', '╔═══════════════════════ start presave ════════════════════ ');
+      //log::add('ColorTransition', 'debug', '╔═══════════════════════ start presave ════════════════════ ');
       //rendre les couleurs non visibles
       $allCmds = $this->getCmd('info');
        foreach($allCmds as $cmdCol){
          $cmdLID=$cmdCol->getLogicalId();
          if(in_array($cmdLID,ColorTransition::logID_common)==false && $cmdCol->getIsVisible() == 1){
-           log::add('ColorTransition', 'debug', '╠════ set non visible cmd : '.$cmdCol->getName());
+           //log::add('ColorTransition', 'debug', '╠════ set non visible cmd : '.$cmdCol->getName());
            $cmdCol->setIsVisible(0);
            $cmdCol->save(true);
            
@@ -339,28 +339,59 @@ class ColorTransition extends eqLogic {
       // commande info de la couleur courante
     $ctCMD = $this->getCmd(null, 'currentColor');
       if (!is_object($ctCMD)) {
-         $ctCMD = new ColorTransitionCmd();
-         $ctCMD->setLogicalId('currentColor');
-         $ctCMD->setIsVisible(1);
-         $ctCMD->setName(__('Couleur courante', __FILE__));
+          $ctCMD = new ColorTransitionCmd();
+          $ctCMD->setLogicalId('currentColor');
+          $ctCMD->setIsVisible(1);
+          $ctCMD->setName(__('Couleur courante', __FILE__));
+          $ctCMD->setType('info');
+          $ctCMD->setSubType('string');
+          $ctCMD->setTemplate('dashboard', 'ColorTransition::colorText');
+          $ctCMD->setTemplate('mobile', 'ColorTransition::colorText');
       }
+      
       $ctCMD->setType('info');
       $ctCMD->setSubType('string');
       $ctCMD->setEqLogic_id($this->getId());
       $ctCMD->save();
 
 
+      
+      // définition des min max et step
+       $typeBorne = $this->getConfiguration('cursor-range');    
+      switch ($typeBorne) {
+      case 'unite':
+          $cursMin=0;
+          $cursMax=1;
+          break;
+      case 'colorLength':
+          $colorArray = $this->getColorsArray();
+          $cursMax=count($colorArray)-1;
+          $cursMin=0;
+
+          break;
+      case 'custom':
+          $cursMin=$this->getConfiguration('cursor-custom-min');
+          $cursMax=$this->getConfiguration('cursor-custom-max');
+          break;
+      }
+      log::add('ColorTransition','debug', '╠════ Set min/max for slider :'.$cursMin.' | '.$cursMax);
+      
+      
       // commande info de la valeur de curseur
     $ctCMD = $this->getCmd(null, 'curseurIndex');
     if (!is_object($ctCMD)) {
        $ctCMD = new ColorTransitionCmd();
        $ctCMD->setLogicalId('curseurIndex');
-       $ctCMD->setIsVisible(1);
+       $ctCMD->setIsVisible(0);
        $ctCMD->setName(__('Curseur', __FILE__));
     }
     $ctCMD->setType('info');
     $ctCMD->setSubType('numeric');
     $ctCMD->setEqLogic_id($this->getId());
+      
+      $ctCMD->setConfiguration('minValue',$cursMin);
+      $ctCMD->setConfiguration('maxValue',$cursMax);
+      
     $ctCMD->save();
 
       // cmd de set du curseur
@@ -377,11 +408,27 @@ class ColorTransition extends eqLogic {
       $ctCMDAct->setType('action');
       $ctCMDAct->setSubType('slider');
       $ctCMDAct->setEqLogic_id($this->getId());
-      $ctCMDAct->save();
+      
+      
+      $ctCMDAct->setConfiguration('minValue',$cursMin);
+      $ctCMDAct->setConfiguration('maxValue',$cursMax);
+      $ctCMDAct->setConfiguration('step',($cursMax-$cursMin)/1000);
+      $ctCMDAct->setTemplate('dashboard', 'ColorTransition::rangedSlider');
+      $ctCMDAct->setTemplate('mobile', 'ColorTransition::rangedSlider');
+      
+      //save
+      $ctCMDAct->save(true);
   
       
       
     }
+ /* public static function templateWidget(){
+	$return = array('info' => array('string' => array()));
+	$return['info']['string']['color'] = array(
+	);
+	return $return;
+}*/
+
 
  // Fonction exécutée automatiquement avant la suppression de l'équipement 
     public function preRemove() {
@@ -433,7 +480,10 @@ class ColorTransitionCmd extends cmd {
       return true;
       }
      */
-
+ 	public function setConfiguration($_key, $_value) {
+		 parent::setConfiguration($_key, $_value);
+    	 log::add('ColorTransition','debug', '╠------------------- set config call :'.$this->getName().'  / '.$_key.':'.$_value);
+	}
   // Exécution d'une commande  
      public function execute($_options = array()) {
        log::add('ColorTransition','debug', "╔═══════════════════════ execute CMD : ".$this->getId()." | ".$this->getHumanName().", logical id : ".$this->getLogicalId() ."  options : ".print_r($_options));
@@ -465,6 +515,7 @@ class ColorTransitionCmd extends cmd {
     
     }
   }
+ 
 
     /*     * **********************Getteur Setteur*************************** */
 }

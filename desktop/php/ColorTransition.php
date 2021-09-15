@@ -154,10 +154,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<sup><i class="fas fa-question-circle tooltips" title="{{défini si la transition s'applique à l'ensemble des couleurs ou entre chaque couleur}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
-                                      <input type="radio" class="eqLogicAttr " data-l1key="configuration" data-l2key="transition-field-each" id="each" name="transition-field" value="each" checked>
-                                      <label for="each">  {{entre chaque couleur}}</label></br>
-                                      <input type="radio" class="eqLogicAttr " data-l1key="configuration" data-l2key="transition-field-all" id="all" name="transition-field" value="all">
-                                        <label for="all"> {{sur toute la gamme de couleurs}}</label>
+                                      <input type="radio" class="eqLogicAttr " data-l1key="configuration" data-l2key="transition-field-all" id="all" name="transition-field" value="all" checked="">
+                                        <label for="all"> {{sur toute la gamme de couleurs}}</label></br>
+                                      <input type="radio" class="eqLogicAttr " data-l1key="configuration" data-l2key="transition-field-each" id="each" name="transition-field" value="each">
+                                      <label for="each">  {{entre chaque couleur}}</label>
+                                      
 								</div>
 							</div>
 							<div class="form-group">
@@ -166,11 +167,12 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</label>
 								<div class="col-sm-7">
                                       <select id="transition-type" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-type">
-										<option value="linear">{{linéaire}}</option>
-                                      	<option value="log">{{log}}</option>
-                                      	<option value="exp">{{exp}}</option>
-                                      <option value="sinus">{{sinuzoidale}}</option>
+                                      <option value="linear">{{linéaire}}</option>
                                       <option value="puiss">{{puissance}}</option>
+                                      <option value="log">{{log}}</option>
+                                      <option value="exp">{{exp}}</option>
+                                      <option value="sinus">{{sinuzoidale}}</option>
+                                      
 									</select>
 								</div>
 							</div>
@@ -180,17 +182,10 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</label>
 								<div class="col-sm-7">
 									<input type="number" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-param"/>
-								
-                                    <div class="" id="trans-param-def">
-                                          <span class="trans-param-linear trans-param-sinus"><i>pas de paramètre</i></span>
-                                          <span class="trans-param-log"><b>[param]</b>*ln(x)+1  <i>(défaut 0.2)</i></span>
-                                          <span class="trans-param-exp"><b>[param]</b>*exp(ln(1/<b>[param]</b>)*x) <i>(défaut 0.01)</i></span>
-                                          <span class="trans-param-puiss">x^<b>[param]</b> <i>(défaut 2)</i></span>
-                                    </div>
                                 </div>
 							</div>
                                       
-                             <legend><i class="fas techno-courbes2"></i> {{Sortie Couleur}}</legend>
+                             <legend><i class="fas fa-eye"></i> {{Sortie Couleur}}</legend>
                                <div class="form-group">
 								 <label class="col-sm-3 control-label">{{Utiliser le canal Alpha}}</label>
 								 <div class="col-sm-7">
@@ -223,6 +218,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                       
                                       <div class="show-curve-wrapper text-center">
                                       </div>
+									
+
+                                    <div class="text-center" id="trans-param-def">
+                                          <span class="trans-param-linear trans-param-sinus"><i>pas de paramètre</i></span>
+                                          <span class="trans-param-log"><b>[param]</b>*ln(x)+1  <i>(défaut 0.2)</i></span>
+                                          <span class="trans-param-exp"><b>[param]</b>*exp(ln(1/<b>[param]</b>)*x) <i>(défaut 0.01)</i></span>
+                                          <span class="trans-param-puiss">x^<b>[param]</b> <i>(défaut 2)</i></span>
+                                    </div>
+
                          </div>
                           <br/>
                          <div class="form-group">

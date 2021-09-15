@@ -1,0 +1,36 @@
+<div class="cmd cmd-widget" data-type="action" data-subtype="slider" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+  <div class="title #hide_name#">
+    <div class="cmdName">#name_display#</div>
+  </div>
+  <div class="content-xs">
+    <div class="slider" value="#state#">
+      <span class="value#uid# sliderValue"></span>
+    </div>
+  </div>
+
+  <script>
+    $(".cmd[data-cmd_uid=#uid#] .slider.slider-horizontal").css('z-index', 1)
+    jeedom.cmd.update['#id#'] = function(_options) {
+      var minV= ('#minValue#' == '') ? 0 : parseInt('#minValue#')
+      var maxV= ('#maxValue#' == '') ? 100 : parseInt('#maxValue#');
+      var stepV=(maxV-minV)/1000;
+      $(".cmd[data-cmd_id=#id#] .slider").slider({
+        min: minV,
+        max: maxV,
+        value: ('#state#' == '') ? 0 : parseFloat(_options.display_value),
+        range: "min",
+        step: stepV,
+        animate: false,
+        slide: function(event, ui) {
+          $(".value#uid#").show().html(ui.value)
+        }
+      })
+    }
+    jeedom.cmd.update['#id#']({display_value:'#state#'})
+
+    $(".cmd[data-cmd_uid=#uid#] .slider").on('slidestop', function (event,ui) {
+      jeedom.cmd.execute({id: '#id#', value: {slider: ui.value}})
+      $(".value#uid#").hide()
+    })
+  </script>
+</div>

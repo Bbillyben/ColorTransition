@@ -10,6 +10,6 @@
   margin: auto;
   display: flex;
 }
-.show-curve-wrapper{
+.show-curve-wrapper, #trans-param-def{
   width:80%;
 }

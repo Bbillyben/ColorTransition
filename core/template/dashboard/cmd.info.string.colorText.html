@@ -1,0 +1,46 @@
+<style>
+.show-room-color{
+ min-width:5px;
+  width:12px;
+  height:12px;
+  display:inline-block;
+  margin-right: 4px;
+  border-radius: 50%;
+  }
+</style>
+
+<div class="cmd cmd-widget #history#" data-type="info" data-subtype="string" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+	<div class="title #hide_name#">
+		<div class="cmdName">#name_display#</div>
+	</div>
+  	<div class="content-xs">
+      <span class="show-room-color">.</span><strong class="state">#value#</strong>
+	</div>
+	
+	<script>
+		jeedom.cmd.update['#id#'] = function(_options){
+          
+          var colStr=String(_options.display_value);
+          
+          try {
+              var jsonCol=JSON.parse(colStr);
+            } catch (e) {
+              //console.log("Parsing error:", e);
+            }
+			console.log("parsed json : "+jsonCol);
+          if (jsonCol==null){
+            	var col='#'+colStr.substring(colStr.length-6, colStr.length);
+          }else{
+            // on a un json
+            col="#" + ((1 << 24) + (jsonCol.r << 16) + (jsonCol.g << 8) + jsonCol.b).toString(16).slice(1);
+          }
+            
+			$('.cmd[data-cmd_id=#id#]').attr('title','{{Date de valeur}} : '+_options.valueDate+'<br/>{{Date de collecte}} : '+_options.collectDate)
+			$('.cmd[data-cmd_id=#id#] .state').empty().append(_options.display_value);
+          	 $('.cmd[data-cmd_id=#id#] .show-room-color').css('background-color', col+' !important');
+         	$('.cmd[data-cmd_id=#id#] .show-room-color').css('color',col+' !important');
+            
+		}
+		jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
+	</script>
+</div>

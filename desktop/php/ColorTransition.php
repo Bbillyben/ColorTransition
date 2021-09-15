@@ -165,7 +165,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<!-- <sup><i class="fas fa-question-circle tooltips" title="{{type de transition appliquée entre 2 couleurs consécutives}}"></i></sup> -->
 								</label>
 								<div class="col-sm-7">
-                                      <select id="cursor-range" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-type">
+                                      <select id="transition-type" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-type">
 										<option value="linear">{{linéaire}}</option>
                                       	<option value="log">{{log}}</option>
                                       	<option value="exp">{{exp}}</option>
@@ -179,14 +179,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<sup><i class="fas fa-question-circle tooltips" title="{{permet de rensigner un paramètre pour la transition, laissez vide par défaut}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
-									<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-param"/>
-								</div>
-                                <div class="col-sm-7" id="trans-param-def">
-                                      <span class="trans-param-linear trans-param-sinus"><i>pas de paramètre</i></span>
-                                      <span class="trans-param-log"><b>[param]</b>*ln(x)+1  <i>(défaut 0.2)</i></span>
-                                      <span class="trans-param-exp"><b>[param]</b>*exp(ln(1/<b>[param]</b>)*x) <i>(défaut 0.01)</i></span>
-                                      <span class="trans-param-puiss">x^<b>[param]</b> <i>(défaut 2)</i></span>
-								</div>
+									<input type="number" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-param"/>
+								
+                                    <div class="" id="trans-param-def">
+                                          <span class="trans-param-linear trans-param-sinus"><i>pas de paramètre</i></span>
+                                          <span class="trans-param-log"><b>[param]</b>*ln(x)+1  <i>(défaut 0.2)</i></span>
+                                          <span class="trans-param-exp"><b>[param]</b>*exp(ln(1/<b>[param]</b>)*x) <i>(défaut 0.01)</i></span>
+                                          <span class="trans-param-puiss">x^<b>[param]</b> <i>(défaut 2)</i></span>
+                                    </div>
+                                </div>
 							</div>
                                       
                              <legend><i class="fas techno-courbes2"></i> {{Sortie Couleur}}</legend>
@@ -214,13 +215,22 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<!-- Partie droite de l'onglet "Équipement" -->
 						<!-- Affiche l'icône du plugin par défaut mais vous pouvez y afficher les informations de votre choix -->
 						<div class="col-lg-6">
-							<legend><i class="fas fa-info"></i> {{Informations}}</legend>
-							<div class="form-group">
-								<div class="text-center">
-									<img name="icon_visu" src="<?= $plugin->getPathImgIcon(); ?>" style="max-width:160px;"/>
-								</div>
-							</div>
-                         <legend><i class="fas fa-info"></i> {{Aperçu}}</legend>  
+                         <legend><i class="fas fa-info"></i> {{Aperçu}}</legend> 
+                         <div class="form-group">
+                         	<label class="col-sm-6">{{Courbes de la fonction de transition, en fonction du paramètre}}</label>
+                          </div>            
+                         <div class="form-group">
+                                      
+                                      <div class="show-curve-wrapper text-center">
+                                      </div>
+                         </div>
+                          <br/>
+                         <div class="form-group">
+                         	<label class="col-sm-6">{{Visualisation de la transformation}}
+								<i style="font-size: small;">  ({{sauvegarder pour mettre à jour}})</i>
+							</label>
+                                      
+                         </div>
                          <div class="form-group">
 								<div class="show-transition-wrapper">
 									<!-- Jquery ajax will insert span-->

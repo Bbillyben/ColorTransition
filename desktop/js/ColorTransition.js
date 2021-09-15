@@ -175,8 +175,16 @@ $(".eqLogicAttr[data-l2key='cursor-range']").on('change', function () {
 
 });
 
+// gestion image représentative de la transition
+
 $(".eqLogicAttr[data-l2key='transition-type']").on('change', function () {
   var curr = $(this).val();
+  
+  //gestion des image
+  $(".show-curve-wrapper").empty();
+  $(".show-curve-wrapper").append('<img class="show-curve"  src="/plugins/ColorTransition/plugin_info/img/'+curr+'.png"  alt="">');
+  
+  // gestion des aide sur fonction
   $("#trans-param-def").children('*').each(function(){
 
     if($(this).hasClass('trans-param-'+curr)){
@@ -190,6 +198,9 @@ $(".eqLogicAttr[data-l2key='transition-type']").on('change', function () {
 
 
 
+
+
+// gestion de l'affichage de l'équipement
 function printEqLogic(_mem) {
 
   $.ajax({

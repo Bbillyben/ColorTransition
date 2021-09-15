@@ -200,15 +200,15 @@ class ColorTransition extends eqLogic {
   // fonction mathématique de calculs selon les transitions et le champs d'application de la transition
   // retourne le pourcentage de la seconde couleur
   
- public function getTransitionValue($transType, $transhFielEach, $cursor, $minI, $maxI, $totalCount){
+ public function getTransitionValue($transType, $transhFielEach, $cursor, &$minI, &$maxI, $totalCount){
    
    $transParam = $this->getConfiguration('transition-param'); // récup le param de la transition
     if(is_null($transParam) || empty($transParam) || !is_numeric($transParam)){ // si param pas défini ou si vide ou si pas numéric
     	$transParam=ColorTransition::default_param[$transType]; // on va cherhcher le params par défaut dans le tableau de classe
     }
    
-   	 log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la transition : '.$transType);
-   	log::add('ColorTransition', 'debug', '╟─── trans param:'.$transParam);
+   log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la transition : '.$transType);
+   log::add('ColorTransition', 'debug', '╟─── trans param:'.$transParam);
    log::add('ColorTransition', 'debug', '╟─── curs param:'.$cursor);
 	if($transhFielEach==1){// si transistion entre chaque couleur
       	$val=$this->getTransitionEach($transType, $cursor, $minI, $maxI, $transParam);
@@ -219,7 +219,7 @@ class ColorTransition extends eqLogic {
    return $val;
    
  }
-  public function getTransitionEach($transType, $cursor, $minI, $maxI, $transParam){
+  public function getTransitionEach($transType, $cursor, &$minI, &$maxI, $transParam){
   	$cursIndex = ($cursor-$minI)/($maxI-$minI);// index de variation entre les 2 courleurs en cours
     
     $val =$this->getGlobalTransitionValue($transType, $cursIndex, $transParam);
@@ -227,18 +227,26 @@ class ColorTransition extends eqLogic {
     
   	return $val;
   }
-  public function getTransitionAll($transType, $cursor, $minI, $maxI, $transParam,$totalCount){
+  public function getTransitionAll($transType, $cursor, &$minI, &$maxI, $transParam,$totalCount){
     log::add('ColorTransition', 'debug', '╟─── start All calculation : '.$minI.' | '.$maxI.' | '.$cursor);
     // ici on va calculer le ratio entre les 2 valeurs qui encadre la valeur calculée de l'index en cours
-    if($minI==$maxI){ 
-      $val=1;
-    }else{
-      $minVal=$this->getGlobalTransitionValue($transType, $minI/$totalCount, $transParam);
-      $maxVal=$this->getGlobalTransitionValue($transType, $maxI/$totalCount, $transParam);
-      $curVal=$this->getGlobalTransitionValue($transType, $cursor/$totalCount, $transParam);
-      $val =($curVal-$minVal)/($maxVal-$minVal);
-    }
+    $curVal=$this->getGlobalTransitionValue($transType, $cursor/$totalCount, $transParam);
+    
+    $cursIndex=$curVal*$totalCount;
+    $minI = floor($cursIndex);
+    $maxI = ceil($cursIndex);
+    
+    
+    $minVal=$minI/$totalCount;
+    $maxVal=$maxI/$totalCount;
+     if($minVal==$maxVal){ 
+       	$val = 1;
+     }else{
+    	$val =($curVal-$minVal)/($maxVal-$minVal);
+     }
+    
     log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minVal.' | '.$maxVal.' | '.$curVal.' | '.$val);
+   
     
   	return $val;
   }
@@ -333,7 +341,7 @@ class ColorTransition extends eqLogic {
       if (!is_object($ctCMD)) {
          $ctCMD = new ColorTransitionCmd();
          $ctCMD->setLogicalId('currentColor');
-         $ctCMD->setIsVisible(0);
+         $ctCMD->setIsVisible(1);
          $ctCMD->setName(__('Couleur courante', __FILE__));
       }
       $ctCMD->setType('info');
@@ -347,7 +355,7 @@ class ColorTransition extends eqLogic {
     if (!is_object($ctCMD)) {
        $ctCMD = new ColorTransitionCmd();
        $ctCMD->setLogicalId('curseurIndex');
-       $ctCMD->setIsVisible(0);
+       $ctCMD->setIsVisible(1);
        $ctCMD->setName(__('Curseur', __FILE__));
     }
     $ctCMD->setType('info');
@@ -361,7 +369,7 @@ class ColorTransition extends eqLogic {
       if (!is_object($ctCMDAct)) {
          $ctCMDAct = new ColorTransitionCmd();
          $ctCMDAct->setLogicalId('setCurseurIndex');
-         $ctCMDAct->setIsVisible(0);
+         $ctCMDAct->setIsVisible(1);
          $ctCMDAct->setName(__('Set Curseur', __FILE__));
       }
       

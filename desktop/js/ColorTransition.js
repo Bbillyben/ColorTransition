@@ -117,11 +117,13 @@ function addCmdToTable(_cmd) {
     tr += '</input>';
     tr += '</td>';
     
-    tr += '<td style="min-width:20px;width:25px;">';
+   /* tr += '<td style="min-width:20px;width:25px;">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="rank" placeholder="{{rank}}" disabled>';
     tr += '</td>';
-    
+    */
     tr += '<td style="min-width:10px;width:20px;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="rank"  style="display:none;" placeholder="{{rank}}" disabled >';
+    
     //tr += '<input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>';
     tr += '<i class="fas fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
     tr += '</tr>';

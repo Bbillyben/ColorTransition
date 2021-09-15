@@ -266,7 +266,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                 <th>{{Nom}}</th>
 								<th>{{Couleur}}</th>
 								<th>{{Alpha}}</th>
-								<th>{{rank}}</th>
+								<!-- <th>{{rank}}</th> -->
                                 <th>{{Action}}</th>
 							</tr>
 						</thead>

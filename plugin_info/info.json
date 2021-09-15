@@ -14,8 +14,7 @@
 	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/d5ae088c484758467bb4bbdcf83dea48cab65821/docs/fr_FR/changelog.md",
 	"documentation" : "https://github.com/Bbillyben/ColorTransition/blob/d5ae088c484758467bb4bbdcf83dea48cab65821/README.md",
 	"link" : {
-		"forum":"Lien vers le forum",
-		"video" : "Lien vers une video"
+		"forum":"https://community.jeedom.com/t/plugin-colortransition-pour-calculer-des-transition-de-couleurs/67540"
 	},
 	"language": [
 		"fr_FR"

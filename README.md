@@ -4,7 +4,7 @@
   <img width="100" src="/plugin_info/ColorTransition_icon.png">
 </p>
 
-Widget Utilitaire qui permet de calculer des transition sur un lots de couleurs. 
+Plugin Utilitaire qui permet de calculer des transition sur un lots de couleurs. 
 Plusieurs type de transition sont proposées, avec 1 paramètre (!) pour pousser la personnalisation.
 
 La couleur de transition est calculée à partir d'un curseur, sur la totalité des couleurs ou entre chaque couleur.

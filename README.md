@@ -4,7 +4,7 @@
   <img width="100" src="/plugin_info/ColorTransition_icon.png">
 </p>
 
-Plugin Utilitaire qui permet de calculer des transition sur un lots de couleurs. 
+Plugin Utilitaire qui permet de calculer des transition sur un lots de couleurs, sur les canaux RGB et/ou Alpha et/ou Blanc.
 Plusieurs type de transition sont proposées, avec 1 paramètre (!) pour pousser la personnalisation.
 
 La couleur de transition est calculée à partir d'un curseur, sur la totalité des couleurs ou entre chaque couleur.
@@ -36,6 +36,7 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
  ### Aperçu
  Colonne de droite de la configuration de l'équipement.
  affiche un graphique représentant la fonction de transition choisie, avec l'application de différents paramètres (cf ci dessous).
+ Cette prévisualisation ne prends pas en compte les canaux ``Alpha`` et ``Blanc`` si sélectionnés.
  Le graphique se met à jour selon la selection du paramètre ``Type de transition``
  Affiche également une prévisualisation de la transition sur toute la range, sans le canal alpha.
  Cette prévisualisation se met à jour quand vous enregistrez l'équipement.
@@ -66,9 +67,10 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
 ### Sortie Couleur
 Cette configuration permet de spécifier le format de sortie de la couleur de transition calculée
 * __Utiliser le canal Alpha__ : Si coché, le canal alhpa sera ajouté
+* __Utiliser le canal Blanc__ : Si coché, le canal blanc sera ajouté
 * __Format de la sortie__ : spécifie le format de la sortie 
-  * *Hexadécimal* : format ``#AARRGGBB`` ou ``#RRGGBB``  
-  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa}`` ou ``{"r":rr,"g":gg,"b":bb}``
+  * *Hexadécimal* : format ``#AAWWRRGGBB`` ou ``#AARRGGBB`` ou ``#WWRRGGBB`` ou ``#RRGGBB``  
+  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa, "w":ww}``, avec ou sans les canaux ``a`` et ``w`, au minimal ``{"r":rr,"g":gg,"b":bb}``
 
  # |Commandes|
   
@@ -90,6 +92,8 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
    * __Nom__ : un nom unique que vous choississez
    * __couleur__ : la valeur de la couleur. la fenêtre de selection est dépendante du navigateur et du système. En général avec une roue ou un panel, les valeurs TSL et RGB
    * __Alpha__ : une valeur pour le canal alpha, défini par un curseur entre 0 et 255
+
+*note* : les colonnes Alpha et Blanc sont affichées ou masquées selon la configuration de l'équipement. 
   
   
 # |Widget|

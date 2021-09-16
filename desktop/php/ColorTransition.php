@@ -192,13 +192,19 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_alpha" checked/>
 								 </div>
 							  </div>
+							  <div class="form-group">
+								 <label class="col-sm-3 control-label">{{Utiliser le canal Blanc}}</label>
+								 <div class="col-sm-7">
+									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_white"/>
+								 </div>
+							  </div>
                                       
                               <div class="form-group">
 								<label class="col-sm-3 control-label">{{Format de la sortie}}</label>
 								<div class="col-sm-7">
                                       <select id="cursor-range" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="color-format">
-										<option value="hexa">{{Hexadecimale}} - #(AA)RRGGBB</option>
-                                      	<option value="json">{{json}}  - {"r":rr,"g":gg,"b":bb,"a":aa})</option>
+										<option value="hexa">{{Hexadecimale}} - #(AA/WW)RRGGBB</option>
+                                      	<option value="json">{{json}}  - {"r":rr,"g":gg,"b":bb,"a":aa, "w":ww})</option>
 									</select>
 								</div>
 							</div>
@@ -279,7 +285,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								<th>{{Id}}</th>
                                 <th>{{Nom}}</th>
 								<th>{{Couleur}}</th>
-								<th>{{Alpha}}</th>
+								<th class="white_slider">{{Blanc}}</th>
+								<th class="alpha_slider	">{{Alpha}}</th>
 								<!-- <th>{{rank}}</th> -->
                                 <th>{{Action}}</th>
 							</tr>

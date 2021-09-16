@@ -169,6 +169,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                       <select id="transition-type" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="transition-type">
                                       <option value="linear">{{linéaire}}</option>
                                       <option value="puiss">{{puissance}}</option>
+									  <option value="sigmoid">{{sigmoid}}</option>
+									  <option value="logit">{{logit}}</option>
                                       <option value="log">{{log}}</option>
                                       <option value="exp">{{exp}}</option>
                                       <option value="sinus">{{sinuzoidale}}</option>
@@ -231,6 +233,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                           <span class="trans-param-log"><b>[param]</b>*ln(x)+1  <i>(défaut 0.2)</i></span>
                                           <span class="trans-param-exp"><b>[param]</b>*exp(ln(1/<b>[param]</b>)*x) <i>(défaut 0.01)</i></span>
                                           <span class="trans-param-puiss">x^<b>[param]</b> <i>(défaut 2)</i></span>
+										  <span class="trans-param-sigmoid">1/(1+exp(-<b>[param]</b>*(x-0.5))) <i>(défaut 10)</i></span>
+										  <span class="trans-param-logit"><b>[param]</b>*log(1/(1-x))+0.5 <i>(défaut 0.2)</i></span>
                                     </div>
 
                          </div>

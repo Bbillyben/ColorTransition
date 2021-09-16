@@ -32,7 +32,9 @@ class ColorTransition extends eqLogic {
       'sinus'=>-1,
       'log'=>0.2,
       'exp'=>0.01,
-      'puiss'=>2
+      'puiss'=>2,
+      'sigmoid'=>10,
+      'logit'=>0.2
     
     );
   // #################### methodes statics
@@ -268,7 +270,13 @@ class ColorTransition extends eqLogic {
        break;
      case 'puiss':
        		$val=pow($cursor,$transParam);
-       break;    
+       break; 
+       case 'sigmoid':
+        $val=1/(1+exp(-$transParam*($cursor-0.5)));
+    break;  
+        case 'logit':
+          $val=$transParam*log($cursor/(1-$cursor),10)+0.5;
+        break;
    }
     $val = max(min($val,1),0);
   return $val;

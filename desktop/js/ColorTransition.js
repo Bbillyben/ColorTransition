@@ -111,6 +111,10 @@ function addCmdToTable(_cmd) {
     tr += '<input type="color" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="color" placeholder="{{Couleur}}">';
     tr += '</td>';
 
+    tr += '<td class="white_slider" style="min-width:20px;width:25px;">';
+    tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal" type="range" min="0" max="255" data-l1key="configuration" data-l2key="white" placeholder="{{white}}" style="width: 100%;">';
+    tr += '<span class="sliderValue" style="display: none;"></span>';
+
     tr += '<td class="alpha_slider" style="min-width:20px;width:25px;">';
     tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal" type="range" min="0" max="255" data-l1key="configuration" data-l2key="alpha" placeholder="{{Alpha}}" style="width: 100%;">';
     tr += '<span class="sliderValue" style="display: none;"></span>';
@@ -131,6 +135,7 @@ function addCmdToTable(_cmd) {
     
     var tr = $('#table_color_cmd tbody tr').last();
     colortransition_fillColorRank();
+    checkUseAlphaWhite();
   }
    jeedom.eqLogic.builSelectCmd({
      id:  $('.eqLogicAttr[data-l1key=id]').value(),
@@ -174,6 +179,24 @@ $(".eqLogicAttr[data-l2key='cursor-range']").on('change', function () {
   }
 
 });
+$(".eqLogicAttr[data-l2key='use_white']").on('change', checkUseAlphaWhite);
+$(".eqLogicAttr[data-l2key='use_alpha']").on('change', checkUseAlphaWhite);
+//$(".eqLogicAttr[data-l2key='use_white']").on('click', checkUseAlphaWhite);
+//$(".eqLogicAttr[data-l2key='use_alpha']").on('click', checkUseAlphaWhite);
+
+function checkUseAlphaWhite(){
+  if($(".eqLogicAttr[data-l2key='use_white']").prop('checked')){
+    $(".white_slider").show();
+  }else{
+    $(".white_slider").hide();
+  }
+  if($(".eqLogicAttr[data-l2key='use_alpha']").prop('checked')){
+    $(".alpha_slider").show();
+  }else{
+    $(".alpha_slider").hide();
+  }
+}
+
 
 // gestion image représentative de la transition
 
@@ -203,6 +226,8 @@ $(".eqLogicAttr[data-l2key='transition-type']").on('change', function () {
 // gestion de l'affichage de l'équipement
 function printEqLogic(_mem) {
 
+
+
   $.ajax({
     type: "POST", 
     url: "plugins/ColorTransition/core/ajax/ColorTransition.ajax.php", 
@@ -219,7 +244,8 @@ function printEqLogic(_mem) {
             $('#div_alert').showAlert({message: data.result, level: 'danger'});
             return;
         }
-        console.log(data.result);
+        //console.log(data.result);
+        
         // onvide le wrapper
         $(".show-transition-wrapper").empty();
         

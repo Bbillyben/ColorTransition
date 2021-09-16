@@ -51,7 +51,7 @@ class ColorTransition extends eqLogic {
     $showRoomColors=Array();
     $numChild=180;
     for($i=0;$i<=$numChild;$i++){
-      $showRoomColors[]=$eqL->calculateColorFromIndex($i/$numChild, $colorArray,false,'hexa');
+      $showRoomColors[]=$eqL->calculateColorFromIndex($i/$numChild, $colorArray,false,false,'hexa');
     }
 
     //log::add('ColorTransition', 'debug','╠════ Colors :'.print_r($output));
@@ -63,6 +63,7 @@ class ColorTransition extends eqLogic {
   public function calculateCurrentColor(){
     // récupe des config 
     $useAlpha=$this->getConfiguration('use_alpha');
+    $useWhite=$this->getConfiguration('use_white');
     $outputType=$this->getConfiguration('color-format');
     
     
@@ -104,11 +105,11 @@ class ColorTransition extends eqLogic {
 	}
     $cursPos=($cursValue-$cursMin)/($cursMax-$cursMin);
     //log::add('ColorTransition', 'debug', '╠════ Curseur Value / % pos : '.$cursValue.' / '.$cursPos);
-    return $this->calculateColorFromIndex($cursPos, $colorArray,$useAlpha,$outputType);
+    return $this->calculateColorFromIndex($cursPos, $colorArray,$useAlpha,$useWhite,$outputType);
   }
 
   // ------------------------ calcul à partir de l'index et des types retournés
-  public function calculateColorFromIndex($cursPos, $colorArray,$useAlpha,$outputType){
+  public function calculateColorFromIndex($cursPos, $colorArray,$useAlpha,$useWhite,$outputType){
     
     // si color array non défnin
     if(is_null($colorArray)) $colorArray = $this->getColorsArray();
@@ -136,7 +137,7 @@ class ColorTransition extends eqLogic {
     //log::add('ColorTransition', 'debug', '╟─── couleur finale:'.sprintf("#%02x%02x%02x%02x",$colorEnd['a'], $colorEnd['r'],$colorEnd['g'],$colorEnd['b']));
     //log::add('ColorTransition', 'debug', '╟─── couleur finale:'.json_encode($colorEnd));
     
-    $output = $this->formatOutput($colorEnd,$useAlpha,$outputType);
+    $output = $this->formatOutput($colorEnd,$useAlpha,$useWhite,$outputType);
     
     
     //log::add('ColorTransition', 'debug', '╠══════════════════════ Couleur Format Final : '.$output);
@@ -151,11 +152,12 @@ class ColorTransition extends eqLogic {
    // log::add('ColorTransition', 'debug', '╠══════════════════════ calcul de la couleur finale au ratio : '.$transValue);
 
     $hex = "#ff9900";
-	$col1Arr = sscanf($colorRef1['color'], "#%02x%02x%02x");
+	  $col1Arr = sscanf($colorRef1['color'], "#%02x%02x%02x");
     $col1Arr[]=intval($colorRef1['alpha']);
+    $col1Arr[]=intval($colorRef1['white']);
     $col2Arr = sscanf($colorRef2['color'], "#%02x%02x%02x");
     $col2Arr[]=intval($colorRef2['alpha']);
-    
+    $col2Arr[]=intval($colorRef2['white']);
     //log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef1));
     //log::add('ColorTransition', 'debug', '╟─── rgb :'.json_encode($col1Arr));
     //log::add('ColorTransition', 'debug', '╟─── couleur ref 1 :'.json_encode($colorRef2));
@@ -165,28 +167,27 @@ class ColorTransition extends eqLogic {
     $currCol['g']=intval($col1Arr[1]+($col2Arr[1]-$col1Arr[1])*$transValue);
     $currCol['b']=intval($col1Arr[2]+($col2Arr[2]-$col1Arr[2])*$transValue);
     $currCol['a']=intval($col1Arr[3]+($col2Arr[3]-$col1Arr[3])*$transValue);
-    
+    $currCol['w']=intval($col1Arr[4]+($col2Arr[4]-$col1Arr[4])*$transValue);
    
     return $currCol;
   }
   
   // format de la sortie
-  public function formatOutput($color, $useAlpha, $outputType){
+  public function formatOutput($color, $useAlpha, $useWhite, $outputType){
     
     //log::add('ColorTransition', 'debug', '╠══════════════════════ formattage de la sortie : ');
     //log::add('ColorTransition', 'debug', '╟─── format type :'.$outputType);
     //log::add('ColorTransition', 'debug', '╟─── canal alpha :'.$useAlpha);
     switch($outputType){
       case 'hexa':
-        if($useAlpha){
-          $output=sprintf("#%02x%02x%02x%02x",$color['a'], $color['r'],$color['g'],$color['b']);
-        }else{
-          $output=sprintf("#%02x%02x%02x",$color['r'],$color['g'],$color['b']);
-        }
+        $output="#".($useAlpha?sprintf("%02x",$color['a']):"").($useWhite?sprintf("%02x",$color['w']):"").sprintf("%02x%02x%02x", $color['r'],$color['g'],$color['b']);
         break;
       case 'json':
         if(!$useAlpha){
           unset($color['a']);
+        }
+        if(!$useWhite){
+          unset($color['w']);
         }
         $output=json_encode($color);
         break;

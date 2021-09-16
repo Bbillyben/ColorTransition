@@ -59,6 +59,8 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
 * __Type de transition__ : spécifie la fonction de transition
   *   *linéaire* : une droite de pente 1 : ``y=x`` - pas de paramètre
   *   *puissance* : ``x^[param]``, par défaut param = 2
+  *   *sigmoid* : ``1/(1+exp(-[param]*(x-0.5)))``, par défaut param = 10
+  *   *logit* : ``[param]*log(x/(1-x))+0.5``, par défaut param = 0.2
   *   *log* : ``[param]*ln(x)+1``, par défaut param = 0.2
   *   *exp* : ``[param]*exp(ln(1/[param])*x)``, par défaut param = 0.01
   *   *sinus* :  ``y=sin(PI/2*x)`` - pas de paramètre

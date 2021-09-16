@@ -195,7 +195,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							  <div class="form-group">
 								 <label class="col-sm-3 control-label">{{Utiliser le canal Blanc}}</label>
 								 <div class="col-sm-7">
-									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_white" checked/>
+									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_white"/>
 								 </div>
 							  </div>
                                       
@@ -286,7 +286,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                 <th>{{Nom}}</th>
 								<th>{{Couleur}}</th>
 								<th class="white_slider">{{Blanc}}</th>
-								<th class="alpha_slider">{{Alpha}}</th>
+								<th class="alpha_slider	">{{Alpha}}</th>
 								<!-- <th>{{rank}}</th> -->
                                 <th>{{Action}}</th>
 							</tr>

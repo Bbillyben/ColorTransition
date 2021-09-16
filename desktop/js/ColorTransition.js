@@ -112,11 +112,13 @@ function addCmdToTable(_cmd) {
     tr += '</td>';
 
     tr += '<td class="white_slider" style="min-width:20px;width:25px;">';
-    tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal" type="range" min="0" max="255" data-l1key="configuration" data-l2key="white" placeholder="{{white}}" style="width: 100%;">';
+    //tr += '<input class="slider-show" data-l1key="configuration" data-l2key="white" style="width: 100%;"/>';
+    tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal slider-show" type="range" min="0" max="255" data-l1key="configuration" data-l2key="white" placeholder="{{white}}" style="width: 100%;">';
     tr += '<span class="sliderValue" style="display: none;"></span>';
-
+    tr += '</td>';
+    
     tr += '<td class="alpha_slider" style="min-width:20px;width:25px;">';
-    tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal" type="range" min="0" max="255" data-l1key="configuration" data-l2key="alpha" placeholder="{{Alpha}}" style="width: 100%;">';
+    tr += '<input class="cmdAttr slider ui-slider ui-corner-all ui-slider-horizontal slider-show" type="range" min="0" max="255" data-l1key="configuration" data-l2key="alpha" placeholder="{{Alpha}}" style="width: 100%;">';
     tr += '<span class="sliderValue" style="display: none;"></span>';
     tr += '</input>';
     tr += '</td>';
@@ -197,6 +199,33 @@ function checkUseAlphaWhite(){
   }
 }
 
+// gestion des slider slider-show
+
+$(".slider-show").on("change input mousemove", function(event,ui) {
+  console.log(event.value.newValue);
+});
+/*
+$(".slider-show").slider({
+  from:0,
+  to:255,
+  step:1,
+  dimension:'',
+  slide: function(event, ui) {
+      console.log(ui.value);
+  },
+  change: function(event, ui) {
+      console.log(ui.value);
+  }
+});
+$(".slider-show").on('input change', function(){
+  console.log("slider input");
+  //console.log($(this).val());
+});
+$( ".slider-show" ).slider({
+  slide: function(event, ui) {
+    console.log("slider change");
+  }
+});*/
 
 // gestion image représentative de la transition
 

@@ -64,6 +64,7 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
   *   *log* : ``[param]*ln(x)+1``, par défaut param = 0.2
   *   *exp* : ``[param]*exp(ln(1/[param])*x)``, par défaut param = 0.01
   *   *sinus* :  ``y=sin(PI/2*x)`` - pas de paramètre
+
 *note:* la prévisualisation est mise à jour quand vous enregistez l'équipement
 
 ### Sortie Couleur
@@ -72,7 +73,7 @@ Cette configuration permet de spécifier le format de sortie de la couleur de tr
 * __Utiliser le canal Blanc__ : Si coché, le canal blanc sera ajouté
 * __Format de la sortie__ : spécifie le format de la sortie 
   * *Hexadécimal* : format ``#AAWWRRGGBB`` ou ``#AARRGGBB`` ou ``#WWRRGGBB`` ou ``#RRGGBB``  
-  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa, "w":ww}``, avec ou sans les canaux ``a`` et ``w`, au minimal ``{"r":rr,"g":gg,"b":bb}``
+  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa, "w":ww}``, avec ou sans les canaux ``a`` et ``w``, au minimal ``{"r":rr,"g":gg,"b":bb}``
 
  # |Commandes|
   
@@ -90,10 +91,11 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
    ici sont définis les couleurs de la transition.
    Vous pouvez ordonner les couleurs par glissé-déposé
    Vous pouvez ajouter autant de couleurs que vous souhaitez !
-   Trois paramètres sont disponible pour les couleurs :
+   Quatre paramètres sont disponible pour les couleurs :
    * __Nom__ : un nom unique que vous choississez
    * __couleur__ : la valeur de la couleur. la fenêtre de selection est dépendante du navigateur et du système. En général avec une roue ou un panel, les valeurs TSL et RGB
    * __Alpha__ : une valeur pour le canal alpha, défini par un curseur entre 0 et 255
+   * __Blanc__ : une valeur pour le canal Blanc, défini par un curseur entre 0 et 255
 
 *note* : les colonnes Alpha et Blanc sont affichées ou masquées selon la configuration de l'équipement. 
   
@@ -101,5 +103,5 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
 # |Widget|
   ![couleur-onglet](/ReadmeImg/widget.PNG) 
   
-  Le widget par défaut du pllugin affiche la valeur de la couleur de transition dans le format configuré, avec une bulle représentant cette couleur.
+  Le widget par défaut du pllugin affiche la valeur de la couleur de transition dans le format configuré, avec une bulle représentant cette couleur (sans les canaux alpha et blanc).
  Le slider affiché pour la commande ``Set Curseur`` est dérivé du slider du core, avec un pas de 1/1000 de la range configurée par le curseur.

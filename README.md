@@ -72,7 +72,7 @@ Cette configuration permet de spécifier le format de sortie de la couleur de tr
 * __Utiliser le canal Blanc__ : Si coché, le canal blanc sera ajouté
 * __Format de la sortie__ : spécifie le format de la sortie 
   * *Hexadécimal* : format ``#AAWWRRGGBB`` ou ``#AARRGGBB`` ou ``#WWRRGGBB`` ou ``#RRGGBB``  
-  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa, "w":ww}``, avec ou sans les canaux ``a`` et ``w`, au minimal ``{"r":rr,"g":gg,"b":bb}``
+  * *json* : format type json : ``{"r":rr,"g":gg,"b":bb,"a":aa, "w":ww}``, avec ou sans les canaux ``a`` et ``w``, au minimal ``{"r":rr,"g":gg,"b":bb}``
 
  # |Commandes|
   

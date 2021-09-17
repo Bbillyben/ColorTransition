@@ -103,5 +103,5 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
 # |Widget|
   ![couleur-onglet](/ReadmeImg/widget.PNG) 
   
-  Le widget par défaut du pllugin affiche la valeur de la couleur de transition dans le format configuré, avec une bulle représentant cette couleur.
+  Le widget par défaut du pllugin affiche la valeur de la couleur de transition dans le format configuré, avec une bulle représentant cette couleur (sans les canaux alpha et blanc).
  Le slider affiché pour la commande ``Set Curseur`` est dérivé du slider du core, avec un pas de 1/1000 de la range configurée par le curseur.

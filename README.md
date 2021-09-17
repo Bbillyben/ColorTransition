@@ -64,6 +64,7 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
   *   *log* : ``[param]*ln(x)+1``, par défaut param = 0.2
   *   *exp* : ``[param]*exp(ln(1/[param])*x)``, par défaut param = 0.01
   *   *sinus* :  ``y=sin(PI/2*x)`` - pas de paramètre
+
 *note:* la prévisualisation est mise à jour quand vous enregistez l'équipement
 
 ### Sortie Couleur
@@ -90,10 +91,11 @@ Vous pouvez utiliser une commande type ``event`` dans un scénario pour définir
    ici sont définis les couleurs de la transition.
    Vous pouvez ordonner les couleurs par glissé-déposé
    Vous pouvez ajouter autant de couleurs que vous souhaitez !
-   Trois paramètres sont disponible pour les couleurs :
+   Quatre paramètres sont disponible pour les couleurs :
    * __Nom__ : un nom unique que vous choississez
    * __couleur__ : la valeur de la couleur. la fenêtre de selection est dépendante du navigateur et du système. En général avec une roue ou un panel, les valeurs TSL et RGB
    * __Alpha__ : une valeur pour le canal alpha, défini par un curseur entre 0 et 255
+   * __Blanc__ : une valeur pour le canal Blanc, défini par un curseur entre 0 et 255
 
 *note* : les colonnes Alpha et Blanc sont affichées ou masquées selon la configuration de l'équipement. 
   

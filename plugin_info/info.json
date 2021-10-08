@@ -2,7 +2,9 @@
 	"id" : "ColorTransition",
 	"name" : "ColorTransition",
 	"description" : {
-		"fr_FR": "Ce Plugin permets de calculer des transitions entre différentes couleurs selon un indice. Il permet différents types de transitions (linéaire, exponentielle, logarithmique, puissance,...), et sort la couleur de transition sous différents formats."
+		"fr_FR": "Ce Plugin permets de calculer des transitions entre différentes couleurs selon un indice. Il permet différents types de transitions (linéaire, exponentielle, logarithmique, puissance,...), et sort la couleur de transition sous différents formats.",
+		"en_EN": "This plugin allows to calculate transitions between different colours according to an index. It allows different types of transitions (linear, exponential, logarithmic, power,...), and outputs the transition colour in different formats."
+
 	},
 	"licence" : "AGPL",
 	"author" : "Bben/Bbillyben",
@@ -11,15 +13,20 @@
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/fr_FR/changelog.md",
-	"documentation" : "https://github.com/Bbillyben/ColorTransition/blob/master/README.md",
+	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/#language#/changelog.md",
+	"documentation" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/#language#/README.md",
 	"link" : {
 		"forum":"https://community.jeedom.com/t/plugin-colortransition-pour-calculer-des-transition-de-couleurs/67540"
 	},
 	"language": [
-		"fr_FR"
+		"fr_FR",
+		"en_EN"
 	],
 	"compatibility": [
-				"v4"
+		"Smart",
+		"RPI\/RPI2",
+		"Docker",
+		"DIY",
+		"v4"
 	]
 }

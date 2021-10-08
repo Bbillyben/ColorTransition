@@ -88,7 +88,7 @@ Puedes utilizar un comando de tipo ``evento'' en un escenario para establecer el
 
 # |Colours|
   
-   ![color-tab](/ReadmeImg/colours.PNG) 
+   ![couleur-onglet](/ReadmeImg/couleurs.PNG) 
    
 Aquí se definen los colores de la transición.
 Puedes ordenar los colores arrastrando y soltando

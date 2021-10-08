@@ -3,7 +3,8 @@
 	"name" : "ColorTransition",
 	"description" : {
 		"fr_FR": "Ce Plugin permets de calculer des transitions entre différentes couleurs selon un indice. Il permet différents types de transitions (linéaire, exponentielle, logarithmique, puissance,...), et sort la couleur de transition sous différents formats.",
-		"en_EN": "This plugin allows to calculate transitions between different colours according to an index. It allows different types of transitions (linear, exponential, logarithmic, power,...), and outputs the transition colour in different formats."
+		"en_EN": "This plugin allows to calculate transitions between different colours according to an index. It allows different types of transitions (linear, exponential, logarithmic, power,...), and outputs the transition colour in different formats.",
+		"es_ES": "Este plugin permite calcular las transiciones entre diferentes colores según un índice. Permite diferentes tipos de transiciones (lineal, exponencial, logarítmica, de potencia,...), y emite el color de la transición en diferentes formatos."
 
 	},
 	"licence" : "AGPL",

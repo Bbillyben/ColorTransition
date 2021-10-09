@@ -27,6 +27,7 @@
 	],
 	"compatibility": [
 		"Smart",
+		"atlas",
 		"RPI\/RPI2",
 		"Docker",
 		"DIY",

@@ -11,22 +11,22 @@
         },
     "plugins\/ColorTransition\/core\/template\/mobile\/cmd.info.string.colorText.html": {
         "Date de valeur": "Fecha de valor",
-        "Date de collecte": "Fecha de recogida"     
+        "Date de collecte": "Fecha de recogida"      
         },
     "plugins\/ColorTransition\/core\/desktop\/js\/ColorTransition.js": {
         "Nom de la commande": "Nombre de la orden",
         "Commande information liée": "Información relacionada con el pedido",
         "Aucune": "No",
         "Unité": "Unidad",
-        "Afficher": "Ver",
+        "Afficher": "Mostrar",
         "Historiser": "Historia",
         "Inverser": "Invertir",
         "Couleur": "Color",
         "white": "blanco",
-        "Alpha": "Alpha",
+        "Alpha": "Alfa",
         "rank": "rango"
-        },
-    "plugins\/ColorTransition\/core\/desktop\/php\/ColorTransition.php": {
+    },
+    "plugins\/ColorTransition\/desktop\/php\/ColorTransition.php": {
         "Ajouter": "Añadir",
         "Configuration": "Configuración",
         "Mes Colortransitions": "Mis Colortransitions",
@@ -46,9 +46,9 @@
         "Curseur": "Cursor",
         "Bornes du curseur": "Terminales del cursor",
         "borne max de valeur du curseur pour le calcul de la transition": "límite del valor máximo del cursor para el cálculo de la transición",
-        "de 0 à 1": "de 0 a 1",
-        "nombre de couleurs": "número de colores",
-        "personnalisées": "personalizado",
+        "de 0 à 1": "From 0 to 1",
+        "nombre de couleurs": "number of colours",
+        "personnalisées": "personalized",
         "min": "min",
         "max": "max",
         "Transition": "Transición",
@@ -65,7 +65,7 @@
         "exp": "exponencial",
         "sinuzoidale": "sinuzoidal",
         "Paramètre de la transition": "Parámetro de transición",
-        "permet de rensigner un paramètre pour la transition, laissez vide par défaut": "permite designar un parámetro para la transición, dejarlo vacío por defecto",
+        "permet de renseigner un paramètre pour la transition, laissez vide par défaut": "permite designar un parámetro para la transición, dejarlo vacío por defecto",
         "Sortie Couleur": "salida de color",
         "Utiliser le canal Alpha": "Uso del canal alfa",
         "Utiliser le canal Blanc": "Uso del canal blanco",

@@ -177,9 +177,10 @@ class ColorTransition extends eqLogic {
   // format de la sortie
   public function formatOutput($color, $useAlpha, $useWhite, $outputType){
     
-    //log::add('ColorTransition', 'debug', '╠══════════════════════ formattage de la sortie : ');
-    //log::add('ColorTransition', 'debug', '╟─── format type :'.$outputType);
-    //log::add('ColorTransition', 'debug', '╟─── canal alpha :'.$useAlpha);
+    log::add('ColorTransition', 'debug', '╠══════════════════════ formattage de la sortie : ');
+    log::add('ColorTransition', 'debug', '╟─── format type :'.$outputType);
+    log::add('ColorTransition', 'debug', '╟─── canal alpha :'.$useAlpha);
+    log::add('ColorTransition', 'debug', '╟─── canal white :'.$useWhite);
     switch($outputType){
       case 'hexa':
         $output="#".($useAlpha?sprintf("%02x",$color['a']):"").($useWhite?sprintf("%02x",$color['w']):"").sprintf("%02x%02x%02x", $color['r'],$color['g'],$color['b']);
@@ -303,6 +304,29 @@ class ColorTransition extends eqLogic {
    	 return $colorsA;
   }
 
+  // récup des bornes min/max
+  public function getBornes(){
+    // définition des min max et step
+       $typeBorne = $this->getConfiguration('cursor-range');    
+      switch ($typeBorne) {
+      case 'unite':
+          $cursMin=0;
+          $cursMax=1;
+          break;
+      case 'colorLength':
+          $colorArray = $this->getColorsArray();
+          $cursMax=count($colorArray)-1;
+          $cursMin=0;
+
+          break;
+      case 'custom':
+          $cursMin=$this->getConfiguration('cursor-custom-min');
+          $cursMax=$this->getConfiguration('cursor-custom-max');
+          break;
+      }
+    
+    return array('min'=>$cursMin, 'max'=>$cursMax);
+  }
 
     /*     * *********************Méthodes d'instance************************* */
     

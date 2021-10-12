@@ -1,9 +1,6 @@
 # Changelog plugin ColorTransition
-
-## 10 Octobre 2021 : 
-- Añadir tracducción de idiomas inglés y español
-- Actualización para utilizar el plugin ColorTransition_actuator
- 
-## 18/09/2021
+# 12/10/2021
+ - correcciones de errores menores para adaptarse a la v4.1.4
+# 18/09/2021
 
 - release Beta

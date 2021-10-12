@@ -1,9 +1,8 @@
 # Changelog plugin ColorTransition
 
-## 10 Octobre 2021 :
- - Ajout Packet de Langues En et Es
- - Mise à jour pour utilisation du plugin ColorTransition_actuator
+# 12/10/2021
+ - minor bug fixes to fit with v4.1.4
 
-## 18/09/2021
+# 18/09/2021
 
 - release Beta

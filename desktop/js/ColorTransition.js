@@ -280,8 +280,9 @@ function printEqLogic(_mem) {
         
         for (var i = 0, len = data.result.length; i < len; i++) {
           $(".show-transition-wrapper").append('<span class="show-transition">.</span>');
-          $(".show-transition-wrapper span:last-child").css("background-color", data.result[i]);
-          $(".show-transition-wrapper span:last-child").css("color", data.result[i]);
+          //$(".show-transition-wrapper span:last-child").css("background-color", data.result[i]+' !important;');
+          //$(".show-transition-wrapper span:last-child").css("color", data.result[i]+' !important;');
+          $(".show-transition-wrapper span:last-child").attr("style", "background-color :"+data.result[i]+' !important; color:'+data.result[i]+' !important;');
         }
 
         

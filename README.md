@@ -11,11 +11,11 @@ La couleur de transition est calculée à partir d'un curseur, sur la totalité 
 
 Documentation :
 
-    fr : https://github.com/Bbillyben/ColorTransition/tree/master/docs/fr_FR
-    en : https://github.com/Bbillyben/ColorTransition/tree/master/docs/en_US
-    es : https://github.com/Bbillyben/ColorTransition/tree/master/docs/es_ES
+   * fr : https://github.com/Bbillyben/ColorTransition/tree/master/docs/fr_FR
+   * en : https://github.com/Bbillyben/ColorTransition/tree/master/docs/en_US
+   * es : https://github.com/Bbillyben/ColorTransition/tree/master/docs/es_ES
 
 Forum/community :
 
-    general : https://community.jeedom.com/
-    sujet plugin : https://community.jeedom.com/tag/plugin-colortransition
+   * general : https://community.jeedom.com/
+   * sujet plugin : https://community.jeedom.com/tag/plugin-colortransition

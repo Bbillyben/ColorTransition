@@ -14,7 +14,7 @@
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/#language#/changelog.md",
+	"changelog" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/changelog.md",
 	"documentation" : "https://github.com/Bbillyben/ColorTransition/blob/master/docs/#language#/README.md",
 	"link" : {
 		"forum":"https://community.jeedom.com/tag/plugin-colortransition"

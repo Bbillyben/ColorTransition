@@ -10,6 +10,13 @@ Plusieurs type de transition sont proposées, avec 1 paramètre (!) pour pousser
 La couleur de transition est calculée à partir d'un curseur, sur la totalité des couleurs ou entre chaque couleur.
 
 
+
+La liste des équipements en affichage tabulaire affiche une prévisualisation de la transition de couleur.
+<p align="center">
+  <img width="100%" src="/ReadmeImg/equipement_tab.PNG">
+</p>
+
+
 # |Configuration|
   
   1. activer le plugin

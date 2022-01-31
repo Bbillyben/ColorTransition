@@ -10,6 +10,11 @@ Se proponen varios tipos de transición, con 1 parámetro (!) para impulsar la p
 El color de transición se calcula a partir de un deslizador, ya sea sobre todos los colores o entre cada color.
 
 
+La lista de equipos en la visualización tabular muestra una vista previa de la transición de color.
+<p align="center">
+  <img width="100%" src="/ReadmeImg/equipement_tab.PNG">
+</p>
+
 # |Configuración|
   
   1. activar el plugin

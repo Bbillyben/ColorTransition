@@ -10,6 +10,11 @@ Several types of transition are proposed, with 1 parameter (!) to push the custo
 The transition colour is calculated from a cursor, on the totality of the colours or between each colour.
 
 
+The equipment list in tabular display shows a preview of the color transition.
+<p align="center">
+  <img width="100%" src="/ReadmeImg/equipement_tab.PNG">
+</p>
+
 # |Configuration|
   
   1. activate the plugin

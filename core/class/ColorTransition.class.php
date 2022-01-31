@@ -223,11 +223,15 @@ class ColorTransition extends eqLogic {
    return $val;
    
  }
-  public function getTransitionEach($transType, $cursor, &$minI, &$maxI, $transParam){
-  	$cursIndex = ($cursor-$minI)/($maxI-$minI);// index de variation entre les 2 courleurs en cours
-    
+  public function getTransitionEach($transType, $cursor, $minI, $maxI, $transParam){
+
+	if( $maxI != $minI){
+      $cursIndex = ($cursor-$minI)/($maxI-$minI);// index de variation entre les 2 courleurs en cours
+    }else{
+      $cursIndex = $maxI;
+    }
     $val =$this->getGlobalTransitionValue($transType, $cursIndex, $transParam);
-    //log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minI.' | '.$maxI.' | '.$cursor.' | '.$val);
+    log::add('ColorTransition', 'debug', '╟─── transition min | max | index | value: '.$minI.' | '.$maxI.' | '.$cursor.' | '.$cursIndex.' | '.$val);
     
   	return $val;
   }

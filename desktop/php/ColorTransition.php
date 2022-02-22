@@ -46,6 +46,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
 				echo '<br>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
+              	// champs avec les couleurs
+              	$colors = ColorTransition::getShowRoom($eqLogic->getId());
+              	
+                  echo '<span class="displayTableRight" style="max-width:65% !important;">';
+              			foreach ($colors as $col){
+              					echo '<span class="show-transition" style="color:'.$col.' !important; background-color:'.$col.' !important; margin-right:0px !important;" >.</span>';
+                        }
+                  echo '</span>';
+              
 				echo '</div>';
 			}
 			echo '</div>';

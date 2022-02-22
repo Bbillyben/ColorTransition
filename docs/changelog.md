@@ -1,6 +1,8 @@
 # Changelog plugin ColorTransition
 
-# 01/2021
+# 02/2022
+ - missing some modification for tabular view!!
+# 01/2022
  - add tabular view : preview of colortransition in tabular view (for core v4.2)
 
 # 12/10/2021
